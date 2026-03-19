@@ -8,6 +8,7 @@ https://marketplace.visualstudio.com/items?itemName=wearefrank.wearefrank
 
 - XSLT <br/>
 https://marketplace.visualstudio.com/items?itemName=deltaxml.xslt-xpath
+https://marketplace.visualstudio.com/items?itemName=deltaxml.xpath-notebook
 
 - XML<br/>
 https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
