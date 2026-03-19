@@ -40,8 +40,8 @@ Ga naar https://www.saxonica.com/download/java.xml en kies de HE voor de laatset
 **Windows voorbeeld** 
 ```json
 {
-  "xslt.configuration.java.home": "C:\\Program Files\\Java\\jdk-21",
-  "xslt.configuration.saxonJar": "C:\\dev\\tools\\saxon-he-12.4.jar"
+  "xslt.configuration.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.17.10-hotspot\\bin\\java.exe", 
+  "xslt.configuration.saxonJar": "C:\\git\\training-resources\\xslt-xpath\\SaxonHE12-9J.zip",
 }
 ```
 
@@ -77,7 +77,7 @@ Kies Create tasks.json
       "command": "java",
       "args": [
         "-cp",
-        "C:\\dev\\tools\\saxon-he-12.4.jar",
+        "C:\\git\\training-resources\\xslt-xpath\\SaxonHE12-9J.jar",
         "net.sf.saxon.Transform",
         "-s:input.xml",
         "-xsl:stylesheet.xsl",
@@ -109,7 +109,7 @@ De XSLT/XPath‑extensie bevat een debugger die werkt met Saxon-JS of SaxonJ.
       "name": "Debug XSLT",
       "xsltFile": "${workspaceFolder}/stylesheet.xsl",
       "xmlFile": "${workspaceFolder}/input.xml",
-      "saxonJar": "C:\\dev\\tools\\saxon-he-12.9.jar"
+      "saxonJar": "C:\\git\\training-resources\\xslt-xpath\\SaxonHE12-9J.jar"
     }
   ]
 }
@@ -135,5 +135,8 @@ De formatter van DeltaXML ondersteunt:
 - Gebruik Ctrl+Shift+P → Evaluate XPath.
 
 
+## Meer details 
+
+https://deltaxml.github.io/vscode-xslt-xpath/
 
 
