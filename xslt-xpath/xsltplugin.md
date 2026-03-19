@@ -30,7 +30,7 @@ Ga naar https://www.saxonica.com/download/java.xml en kies de HE voor de laatset
 ```json
 {
   "xslt.configuration.java.home": "/path/to/jdk", 
-  "xslt.configuration.saxonJar": "/path/to/saxon-he-12.4.jar",
+  "xslt.configuration.saxonJar": "/path/to/saxon-he-12.9.jar",
   "xslt.configuration.showPrintOutput": true,
   "xslt.configuration.enableLinting": true,
   "xslt.configuration.enableFormatting": true
@@ -41,7 +41,7 @@ Ga naar https://www.saxonica.com/download/java.xml en kies de HE voor de laatset
 ```json
 {
   "xslt.configuration.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.17.10-hotspot\\bin\\java.exe", 
-  "xslt.configuration.saxonJar": "C:\\git\\training-resources\\xslt-xpath\\SaxonHE12-9J.zip",
+  "xslt.configuration.saxonJar": "C:\\git\\training-resources\\xslt-xpath\\Saxon-he-12.9.jar",
 }
 ```
 
@@ -72,19 +72,20 @@ Kies Create tasks.json
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run XSLT",
-      "type": "shell",
-      "command": "java",
-      "args": [
-        "-cp",
-        "C:\\git\\training-resources\\xslt-xpath\\SaxonHE12-9J.jar",
-        "net.sf.saxon.Transform",
-        "-s:input.xml",
-        "-xsl:stylesheet.xsl",
-        "-o:output.xml"
-      ],
-      "group": "build",
-      "problemMatcher": []
+      "type": "xslt",
+      "label": "xslt: Saxon Transform",
+      "saxonJar": "C:\\git\\training-resources\\xslt-xpath\\saxon-he-12.9.jar;C:\\git\\training-resources\\xslt-xpath\\xmlresolver-5.3.3.jar",
+      "xsltFile": "${command:xslt-xpath.pickXsltFile}",
+      "xmlSource": "${command:xslt-xpath.pickXmlSourceFile}",
+      "resultPath": "${workspaceFolder}/xsl-out/result1.xml",
+      "allowSyntaxExtensions40": "off",
+      "messageEscaping": "adaptive",
+      "group": {
+        "kind": "build"
+      },
+      "problemMatcher": [
+        "$saxon-xslt"
+      ]
     }
   ]
 }
@@ -109,7 +110,7 @@ De XSLT/XPath‑extensie bevat een debugger die werkt met Saxon-JS of SaxonJ.
       "name": "Debug XSLT",
       "xsltFile": "${workspaceFolder}/stylesheet.xsl",
       "xmlFile": "${workspaceFolder}/input.xml",
-      "saxonJar": "C:\\git\\training-resources\\xslt-xpath\\SaxonHE12-9J.jar"
+      "saxonJar": "C:\\git\\training-resources\\xslt-xpath\\saxon-he-12.9.jar"
     }
   ]
 }
