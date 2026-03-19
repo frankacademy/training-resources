@@ -2,7 +2,7 @@
 
 
 ## VSCODE
-Plugins:
+**Plugins:**
 - WeAreFrank <br/>
 https://marketplace.visualstudio.com/items?itemName=wearefrank.wearefrank
 
