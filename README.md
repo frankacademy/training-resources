@@ -3,16 +3,16 @@
 
 ## VSCODE
 Plugins:
-- WeAreFrank (wearefrank.wearefrank)
+- WeAreFrank <br/>
 https://marketplace.visualstudio.com/items?itemName=wearefrank.wearefrank
 
-- XSLT 
+- XSLT <br/>
 https://marketplace.visualstudio.com/items?itemName=deltaxml.xslt-xpath
 
-- XML
+- XML<br/>
 https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
 
-- datasonnet 
+- DataSonnet <br/>
 https://marketplace.visualstudio.com/items?itemName=PortX.datasonnet-vscode-debugger
 
 ## Frank!Framework
