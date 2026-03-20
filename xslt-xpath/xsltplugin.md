@@ -15,7 +15,7 @@ Deze biedt:
 - Klik op Install.
 
 ## 2 Installatie van Saxon (parser/transformer)
-- Installeer een JDK (17 of hoger). (check je java versie)[java.md]
+- Installeer een JDK (17 of hoger). [check je java versie](Java.md)
 - Download Saxon-HE JAR van saxonica.com.
 
 Ga naar https://www.saxonica.com/download/java.xml en kies de HE voor de laatset versie of gebruik de versie in deze git repo.
