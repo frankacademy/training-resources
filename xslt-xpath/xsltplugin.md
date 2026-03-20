@@ -16,14 +16,8 @@ Deze biedt:
 
 ## 2 Installatie van Saxon (parser/transformer)
 - Installeer een JDK (17 of hoger). [check je java versie](Java.md)
-- Download Saxon-HE JAR van saxonica.com.
-
-Ga naar https://www.saxonica.com/download/java.xml en kies de HE voor de laatset versie of gebruik de versie in deze git repo.
-
-
-
-- Plaats het JAR-bestand in een tools-map.
-
+- Gebruik de Saxon versie uit deze repo of Download de neiuwste Saxon-HE JAR van saxonica.com. https://www.saxonica.com/download/java.xml
+- Plaats het JAR-bestand in een tools-map of link hem direct in deze repo.
 
 ## 3 VS Code configuratie voor XSLT + Saxon
 - Ctrl+Shift+P → Preferences: Open Settings (JSON)
@@ -37,7 +31,7 @@ Ga naar https://www.saxonica.com/download/java.xml en kies de HE voor de laatset
 }
 ```
 
-**Windows voorbeeld** 
+**Windows voorbeeld van de paden** 
 ```json
 {
   "xslt.configuration.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.17.10-hotspot\\bin\\java.exe", 
