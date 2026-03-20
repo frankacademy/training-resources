@@ -35,7 +35,7 @@ Deze biedt:
 ```json
 {
   "xslt.configuration.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.17.10-hotspot\\bin\\java.exe", 
-  "xslt.configuration.saxonJar": "C:\\git\\training-resources\\xslt-xpath\\Saxon-he-12.9.jar",
+  "xslt.configuration.saxonJar": "C:\\git\\training-resources\\xslt-xpath\\Saxon-he-12.9.jar;C:\\git\\training-resources\\xslt-xpath\\xmlresolver-5.3.3.jar"
 }
 ```
 
@@ -84,7 +84,7 @@ Kies Create tasks.json
   ]
 }
 ```
-"saxonJar": "C:\\git\\training-resources\\xslt-xpath\\saxon-he-12.9.jar;C:\\git\\training-resources\\xslt-xpath\\xmlresolver-5.3.3.jar",
+
 
 
 ## 6 Debugging configureren
