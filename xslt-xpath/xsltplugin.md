@@ -68,7 +68,7 @@ Kies Create tasks.json
     {
       "type": "xslt",
       "label": "xslt: Saxon Transform",
-      "saxonJar": "C:\\git\\training-resources\\xslt-xpath\\saxon-he-12.9.jar;C:\\git\\training-resources\\xslt-xpath\\xmlresolver-5.3.3.jar",
+      "saxonJar": "${config:XSLT.tasks.saxonJar}",
       "xsltFile": "${command:xslt-xpath.pickXsltFile}",
       "xmlSource": "${command:xslt-xpath.pickXmlSourceFile}",
       "resultPath": "${workspaceFolder}/xsl-out/result1.xml",
@@ -84,6 +84,7 @@ Kies Create tasks.json
   ]
 }
 ```
+"saxonJar": "C:\\git\\training-resources\\xslt-xpath\\saxon-he-12.9.jar;C:\\git\\training-resources\\xslt-xpath\\xmlresolver-5.3.3.jar",
 
 
 ## 6 Debugging configureren
