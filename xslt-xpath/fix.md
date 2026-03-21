@@ -26,3 +26,21 @@
   </xsl:template>
 </xsl:stylesheet>
 ```
+
+
+resultaat
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<brieven>
+   <brief>
+      <aanhef>Jeroen Jansen van Rosendaal</aanhef>
+      <adres>
+         <straat>Molenstraat</straat>
+         <huisnummer>1</huisnummer>
+         <postcode>1234 AA</postcode>
+         <plaats>Moerdijk</plaats>
+      </adres>
+   </brief>
+</brieven>
+```
