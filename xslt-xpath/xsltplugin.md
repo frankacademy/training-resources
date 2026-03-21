@@ -85,13 +85,31 @@ Kies Create tasks.json
 }
 ```
 
+## 6 Auto-formatting
+- Gebruik xslt.configuration-instellingen voor juiste formatting.
+
+De formatter van DeltaXML ondersteunt:
+
+- indenting
+- attributes op nieuwe regels
+- preserve whitespace
+
+## 7 XPath evaluatie
+- Gebruik Ctrl+Shift+P → Evaluate XPath.
 
 
-## 6 Debugging configureren
-- Maak een launch.json.
+## Meer details 
 
-De XSLT/XPath‑extensie bevat een debugger die werkt met Saxon-JS of SaxonJ.
+https://deltaxml.github.io/vscode-xslt-xpath/
 
+## (expirimenteel) Debugging configureren (andere plugin)
+
+Debugging is geen onderdeel van de DeltaXML plugin, DanielJonathan.xsltdebugger kan dit wel maar krijg hem nog niet aan de praat
+
+Hoe het zou moeten werken:
+
+- installeer de xslt debug plugin van Daniel Jonathan
+- Maak een launch.json
 1. Open Run and Debug (Ctrl+Shift+D)
 1. Klik create launch.json
 1. Voeg toe:
@@ -103,36 +121,24 @@ De XSLT/XPath‑extensie bevat een debugger die werkt met Saxon-JS of SaxonJ.
       "type": "xslt",
       "request": "launch",
       "name": "Debug XSLT",
-      "xsltFile": "${workspaceFolder}/stylesheet.xsl",
-      "xmlFile": "${workspaceFolder}/input.xml",
-      "saxonJar": "C:\\git\\training-resources\\xslt-xpath\\saxon-he-12.9.jar"
+      "engine": "saxonnet",
+      "stylesheet": "${workspaceFolder}\\configurations\\personen\\xsl\\persoon2brieven.xsl",
+      "xml": "${workspaceFolder}\\configurations\\personen\\xml\\persoon.xml",
+      "stopOnEntry": true,
+      "debug": true,
+      "logLevel": "trace"
     }
   ]
 }
-
 ```
 Daarna kun je:
 
 - breakpoints zetten
 - variables inspecteren
 - call stack bekijken
-- XPath evalueren (superhandig!)
-
-## 7 Auto-formatting
-- Gebruik xslt.configuration-instellingen voor juiste formatting.
-
-De formatter van DeltaXML ondersteunt:
-
-- indenting
-- attributes op nieuwe regels
-- preserve whitespace
-
-## 8 XPath evaluatie
-- Gebruik Ctrl+Shift+P → Evaluate XPath.
 
 
-## Meer details 
 
-https://deltaxml.github.io/vscode-xslt-xpath/
+
 
 
