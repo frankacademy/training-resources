@@ -1,4 +1,4 @@
-## voorbereiding vorod e test van de xslt tooling
+## voorbereiding voor de test van de xslt tooling
 
 Als voorbereiding maken we in ons project een paar files aan:
 - persoon.xml
