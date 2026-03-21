@@ -136,7 +136,7 @@ Daarna kun je:
 - breakpoints zetten
 - variables inspecteren
 - call stack bekijken
-
+https://marketplace.visualstudio.com/items?itemName=DanielJonathan.xsltdebugger-windows#setting-up-a-debug-configuration
 
 
 
