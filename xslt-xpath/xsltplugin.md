@@ -104,7 +104,7 @@ https://deltaxml.github.io/vscode-xslt-xpath/
 
 ## (expirimenteel) Debugging configureren (andere plugin)
 
-Debugging is geen onderdeel van de DeltaXML plugin, DanielJonathan.xsltdebugger kan dit wel maar krijg hem nog niet aan de praat
+Debugging is geen onderdeel van de DeltaXML plugin, DanielJonathan.xsltdebugger kan dit wel
 
 Hoe het zou moeten werken:
 
