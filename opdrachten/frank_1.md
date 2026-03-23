@@ -5,13 +5,22 @@
 
 
 
-- pas de configuratie.xml aan zodat deze een referentie heeft naar configuratie_personen heeft include tag
+- pas de configuratie.xml aan zodat deze een referentie heeft naar configuratie_personen heeft. (include tag)
 - maak de configuratie_personen.xml aan met daarin een adapter(integratie Flow)
-- Gebruik ene java listener
+- Gebruik een javalistener
 - gebruik een validator om m.b.v. een xsd het binnenkomende personen bericht te valideren
 - gebruik een xslt pipe om de output te mappen (gebruik hiervoor de eerder gemaakte xml, xsd en xsl file)
 
 
+<details>
+<summary>Klik hier om meer te lezen</summary>
+
+### Verborgen inhoud
+Hier staat de tekst die verborgen is totdat je op de samenvatting klikt.
+Je kunt hier ook codeblokken of afbeeldingen in plaatsen.
+
+
+Het resultaat
 ```xml
 <Module
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -49,6 +58,7 @@
 </Module>
 ```
 
+</details>
 
 
 Om te testen:
