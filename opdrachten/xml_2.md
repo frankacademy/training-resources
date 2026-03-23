@@ -1,89 +1,228 @@
 ## “Complexere XSLT” 
 
-
-1. Gebruik een lookup tabel
-1. Maak een simpele XSLT mapping
-1. Test de mapping
-
-
-Maak een: 
-- nieuw xsl bestand aanmaken
-- voeg een xml bestand toe
+1. Condities 
+1. Templates / herhalingen
+1. Lookup tabel
 
 
 
-### Het resultaat zou er ongeveer zo uit kunnen zien (niet copieren plakken maar proberen zelf te maken) 
+### Condities
+in een xslt kunnen condities op meerdere manieren worden toegepast:
+- xsl:if
+- xsl:choose
+- XPATH
+
+Maak een xslt om dit uit te proberen:
+
 ```xml
-<persoon>
-    <voornaam>Jeroen</voornaam>
-    <achternaam>Jansen van Rosendaal</achternaam>
-    <adressen>
-        <adres type="woon">
-            <straat>Molenstraat</straat>
-            <huisnummer>1</huisnummer>
-            <postcode>1234 AA</postcode>
-            <plaats>Moerdijk</plaats>
-        </adres>
-        <adres type="werk">
-            <straat>Westersingel</straat>
-            <huisnummer>42</huisnummer>
-            <postcode>3014 GT</postcode>
-            <plaats>Rotterdam</plaats>
-        </adres>
-    </adressen>
-</persoon>
+<xsl:if test="@age &gt; 18">
+    <volwassen>true</volwassen>
+</xsl:if>
 ```
 
-### Een xsd genereren
-- Kies voor de tweede optie
+```xml
+<xsl:choose>
+    <xsl:when test="@age &lt; 18">
+        <status>minderjarig</status>
+    </xsl:when>
+    <xsl:when test="@age &lt; 65">
+        <status>volwassen</status>
+    </xsl:when>
+    <xsl:otherwise>
+        <status>senior</status>
+    </xsl:otherwise>
+</xsl:choose>
+```
 
-<img width="685" height="472" alt="image" src="https://github.com/user-attachments/assets/eb92e2f5-7001-4e1f-81a9-f242e3c821b1" />
+```xpath
+<xsl:value-of select="if (@age &lt; 18) then 'minderjarig' else 'volwassen'"/>
+```
 
 
 
+### Templates / herhalingen
 
+Input xml
+```xml
+<orders>
+    <order id="A100">
+        <item>
+            <name>Laptop Sleeve</name>
+            <price>25</price>
+        </item>
+    </order>
+
+    <order id="B200">
+        <item>
+            <name>Monitor</name>
+            <price>150</price>
+        </item>
+    </order>
+
+    <order id="C300">
+        <item>
+            <name>USB Cable</name>
+            <price>10</price>
+        </item>
+        <item>
+            <name>External SSD</name>
+            <price>120</price>
+        </item>
+    </order>
+
+    <order id="D400">
+        <item>
+            <name>Mouse</name>
+            <price>40</price>
+        </item>
+    </order>
+</orders>
+```
+
+De xslt functie 
+```xml
+<xsl:for-each select="order[item/price &gt; 100]">
+    <expensive-order>
+        <xsl:value-of select="@id"/>
+    </expensive-order>
+</xsl:for-each>
+```
+
+
+Input xml
+```xml
+<people>
+    <person name="Jan" age="17"/>
+    <person name="Sarah" age="25"/>
+    <person name="Tom" age="18"/>
+    <person name="Lotte" age="12"/>
+</people>
+```
+
+de xslt functie
+```xml
+<xsl:template match="person[@age &gt;= 18]">
+    <adult>
+        <xsl:value-of select="@name"/>
+    </adult>
+</xsl:template>
+```
+
+
+
+### lookup tabel
+
+voorbeeld lookup tabel
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="persoon">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="voornaam" type="xs:string" />
-                <xs:element name="achternaam" type="xs:string" />
-                <xs:element name="adressen">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="adres" maxOccurs="unbounded">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="straat" type="xs:string" />
-                                        <xs:element name="huisnummer" type="xs:string" />
-                                        <xs:element name="postcode" type="xs:string" />
-                                        <xs:element name="plaats" type="xs:string" />
-                                    </xs:sequence>
-                                    <xs:attribute name="type" use="required" />
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-</xs:schema>
+<domains xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="LookupTable.xsd">
+    <domain name="Landen">
+        <value from="NL" to="Nederland"/>
+        <value from="BE" to="België"/>
+        <value from="DE" to="Duitsland"/>
+        <value from="FR" to="Frankrijk"/>
+        <value from="ES" to="Spanje"/>
+        <value from="IT" to="Italië"/>
+        <value from="LU" to="Luxemburg"/>
+        <value from="UK" to="Verenigd Koninkrijk"/>
+        <value from="IE" to="Ierland"/>
+        <value from="DK" to="Denemarken"/>
+        <value from="NO" to="Noorwegen"/>
+        <value from="SE" to="Zweden"/>
+        <value from="FI" to="Finland"/>
+        <value from="AT" to="Oostenrijk"/>
+        <value from="CH" to="Zwitserland"/>
+        <value from="PT" to="Portugal"/>
+        <value from="PL" to="Polen"/>
+        <value from="CZ" to="Tsjechië"/>
+        <value from="SK" to="Slowakije"/>
+        <value from="HU" to="Hongarije"/>
+        <value from="GR" to="Griekenland"/>
+        <value from="RO" to="Roemenië"/>
+        <value from="BG" to="Bulgarije"/>
+        <value from="HR" to="Kroatië"/>
+        <value from="SI" to="Slovenië"/>
+        <value from="EE" to="Estland"/>
+        <value from="LV" to="Letland"/>
+        <value from="LT" to="Litouwen"/>
+    </domain>
+    <domain name="LandNummers">
+        <value from="NL" to="+31"/>
+        <value from="BE" to="+32"/>
+        <value from="DE" to="+49"/>
+        <value from="FR" to="+33"/>
+        <value from="ES" to="+34"/>
+        <value from="IT" to="+39"/>
+        <value from="LU" to="+352"/>
+        <value from="UK" to="+44"/>
+        <value from="IE" to="+353"/>
+        <value from="DK" to="+45"/>
+        <value from="NO" to="+47"/>
+        <value from="SE" to="+46"/>
+        <value from="FI" to="+358"/>
+        <value from="AT" to="+43"/>
+        <value from="CH" to="+41"/>
+        <value from="PT" to="+351"/>
+        <value from="PL" to="+48"/>
+        <value from="CZ" to="+420"/>
+        <value from="SK" to="+421"/>
+        <value from="HU" to="+36"/>
+        <value from="GR" to="+30"/>
+        <value from="RO" to="+40"/>
+        <value from="BG" to="+359"/>
+        <value from="HR" to="+385"/>
+        <value from="SI" to="+386"/>
+        <value from="EE" to="+372"/>
+        <value from="LV" to="+371"/>
+        <value from="LT" to="+370"/>
+        <value from="US" to="+1"/>
+        <value from="CA" to="+1"/>
+        <value from="AU" to="+61"/>
+        <value from="NZ" to="+64"/>
+        <value from="CN" to="+86"/>
+        <value from="JP" to="+81"/>
+        <value from="IN" to="+91"/>
+        <value from="BR" to="+55"/>
+    </domain>
+</domains>
 ```
 
-### Een XSLT maken
-We willen een XSLT maken die een brief adressering naar het werk adres opzet
 
-mapping
-```
-brief
-  adresregel_1 ==> voornaam + '' + achternaam
-  adresregel_2 ==> straat + '' + huisnummer
-  adresregel_3 ==> postcode +' '+ woonplaats
+
+een standaard template om de lookup mee te gebruiken
+```xml
+ <xsl:template name="lookup">
+    <xsl:param name="lookupValue"/>
+    <xsl:param name="lookupName"/>
+    <xsl:choose>
+      <xsl:when test="$domainLookup/domains/domain[@name=$lookupName]/value[@from=$lookupValue]/@to">
+        <xsl:value-of select="$domainLookup/domains/domain[@name=$lookupName]/value[@from=$lookupValue]/@to"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$domainLookup/domains/domain[@name=$lookupName]/default/@to"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 ```
 
+
+de aanroep van de template
+```xml
+<xsl:call-template name="lookup">
+    <xsl:with-param name="lookupValue" select="landcode"/>
+    <xsl:with-param name="lookupName" select="'LandNummers'"/>
+</xsl:call-template>
+```
+
+input xml
+```xml
+<landcode>NL</landcode>
+```
+
+<details>
+<summary>Antwoord (resultaat)</summary>
+
+### Het resultaat
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -96,18 +235,41 @@ brief
                 version="3.0">
   
   <xsl:output method="xml" indent="yes"/>
- 
+  <xsl:variable name="domainLookup" select="document('../xml/lookup_landen.xml')" />
   <xsl:template match="/">
-      <brief>
- .......
-       </brief>
+    <output>
+      <xsl:element name="landnaam">
+        <xsl:call-template name="lookup">
+          <xsl:with-param name="lookupValue" select="landcode"/>
+          <xsl:with-param name="lookupName" select="'Landen'"/>
+        </xsl:call-template>
+      </xsl:element>    
+      <xsl:element name="landnummerprefix">
+        <xsl:call-template name="lookup">
+          <xsl:with-param name="lookupValue" select="landcode"/>
+          <xsl:with-param name="lookupName" select="'LandNummers'"/>
+        </xsl:call-template>
+      </xsl:element>
+    </output>   
   </xsl:template>
+  
+  
+  <xsl:template name="lookup">
+    <xsl:param name="lookupValue"/>
+    <xsl:param name="lookupName"/>
+    <xsl:choose>
+      <xsl:when test="$domainLookup/domains/domain[@name=$lookupName]/value[@from=$lookupValue]/@to">
+        <xsl:value-of select="$domainLookup/domains/domain[@name=$lookupName]/value[@from=$lookupValue]/@to"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$domainLookup/domains/domain[@name=$lookupName]/default/@to"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
 </xsl:stylesheet>
 ```
 
-3 manieren om spatie tussen waardes te krijgen
-```xml
-<adresregel_1><xsl:value-of select="concat(persoon/voornaam,' ',persoon/achternaam)"/></adresregel_1>
-<adresregel_2><xsl:value-of select="persoon/adressen/adres[@type='werk']/straat"/><xsl:text> </xsl:text><xsl:value-of select="persoon/adressen/adres[@type='werk']/huisnummer"/></adresregel_2>
-<adresregel_3><xsl:value-of select="persoon/adressen/adres[@type='werk']/(postcode,plaats)"/></adresregel_3> 
-```
+</details>
+
+- test dit geheel in VSCODE
