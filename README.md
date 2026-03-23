@@ -19,5 +19,7 @@ https://marketplace.visualstudio.com/items?itemName=PortX.datasonnet-vscode-debu
 ## Opdrachten
 
 - [XSLT/XPATH plugin](/opdrachten/xslt_xpath_plug-in_installeren.md)
-- [XML bestanden](/opdrachten/xml_bestanden_aanmaken.md)
+- [XML eenvoudig](/opdrachten/xml_1.md)
+- [Mapping in adapter inbouwen](/opdrachten/frank_1.md)
+- [XML iets ingewikkelder](/opdrachten/xml_2.md)
  
