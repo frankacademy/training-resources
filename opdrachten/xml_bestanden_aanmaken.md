@@ -1,3 +1,6 @@
+---
+id: xml
+---
 ## “BASIS XML” in vscode
 
 Om de xslt pugin goed te kunnen testen/gebruiken gaan we zelf een test opzetten. 
