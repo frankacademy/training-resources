@@ -18,5 +18,5 @@ https://marketplace.visualstudio.com/items?itemName=PortX.datasonnet-vscode-debu
 
 ## Opdrachten
 
-[index](..opdrachten/index.md)
+[index](/opdrachten/xml_bestanden_aanmaken.md)
 - 
