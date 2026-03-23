@@ -12,8 +12,8 @@ git clone https://github.com/frankacademy/training-resources.git
 
 -	Start VS code en volg de stappen:
 
--	[Voorbereiding](/xslt-xpath/voorbereiding.md)
--	[Installeren plugin](/xslt-xpath/xsltplugin.md)
--	[Testen plugin](/xslt-xpath/testen.md)
+-	[Voorbereiding](/training-resources/xslt-xpath/voorbereiding.md)
+-	[Installeren plugin](/training-resources/xslt-xpath/xsltplugin.md)
+-	[Testen plugin](/training-resources/xslt-xpath/testen.md)
 
-- [Fixen mapping](/xslt-xpath/fix.md)
+- [Fixen mapping](/training-resources/xslt-xpath/fix.md)
