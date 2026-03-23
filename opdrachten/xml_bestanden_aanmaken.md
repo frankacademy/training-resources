@@ -20,7 +20,7 @@ Maak een:
 - voeg een woon en een werk adres toe
 
 
-### Het resultaat zou er ongeveer zo uit moeten zien
+### Het resultaat zou er ongeveer zo uit kunnen zien (niet copieren plakken maar proberen zelf te maken) 
 ```xml
 <persoon>
     <voornaam>Jeroen</voornaam>
@@ -80,4 +80,17 @@ Maak een:
     </xs:element>
 </xs:schema>
 ```
+
+### Een XSLT maken
+We willen een XSLT maken die een brief adressering naar het werk adres opzet
+
+mapping
+```
+brief
+  adresregel_1 ==> voornaam + '' + achternaam
+  adresregel_2 ==> straat + '' + huisnummer
+  adresregel_3 ==> postcode +' '+ woonplaats
+```
+
+
 
