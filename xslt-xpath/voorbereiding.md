@@ -7,21 +7,15 @@ Als voorbereiding hebben we in ons project een aantal bestanden nodig:
 <img width="321" height="213" alt="image" src="https://github.com/user-attachments/assets/475d88e0-9c99-4e35-abf9-dc5cde8acf3c" />
 
 ```xml
-<persoon>
+<root>
     <voornaam>Jeroen</voornaam>
     <achternaam>Jansen van Rosendaal</achternaam>
     <adressen>
-        <adres type="woon">
+        <adres>
             <straat>Molenstraat</straat>
             <huisnummer>1</huisnummer>
             <postcode>1234 AA</postcode>
             <plaats>Moerdijk</plaats>
-        </adres>
-        <adres type="werk">
-            <straat>Westersingel</straat>
-            <huisnummer>42</huisnummer>
-            <postcode>3014 GT</postcode>
-            <plaats>Rotterdam</plaats>
         </adres>
     </adressen>
 </persoon>
