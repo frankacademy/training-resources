@@ -8,7 +8,10 @@ Om de xslt pugin goed te kunnen testen/gebruiken gaan we zelf een test opzetten.
 1. Test de mapping
 
 We openen VSCODE met het alle geinstalleerde plugins 
-Maak een:
+
+We gaan met de hand een xml bericht aanmaken.
+
+Maak een: 
 - nieuw XML bestand
 - root persoon
 - maak een element voor voornaam en achternaam
@@ -38,6 +41,8 @@ Het resultaat zou er ongeveer zo uit moeten zien
 </persoon>
 ```
 
+Een xsd genereren
+<img width="685" height="472" alt="image" src="https://github.com/user-attachments/assets/eb92e2f5-7001-4e1f-81a9-f242e3c821b1" />
 
 
 
