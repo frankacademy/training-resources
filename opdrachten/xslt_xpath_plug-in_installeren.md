@@ -6,7 +6,9 @@ Beginpunt:
 -	Een locale clone deze repo
 
 ```
+
 git clone https://github.com/frankacademy/training-resources.git
+
 ```
 
 

@@ -13,14 +13,10 @@
 
 
 <details>
-<summary>Klik hier om meer te lezen</summary>
+<summary>Antwoord (resultaat)</summary>
 
-### Verborgen inhoud
-Hier staat de tekst die verborgen is totdat je op de samenvatting klikt.
-Je kunt hier ook codeblokken of afbeeldingen in plaatsen.
+### Het resultaat
 
-
-Het resultaat
 ```xml
 <Module
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

@@ -19,8 +19,12 @@ Maak een:
 - een herhalende groep adressen
 - voeg een woon en een werk adres toe
 
+<details>
+<summary>Antwoord (resultaat)</summary>
 
-### Het resultaat zou er ongeveer zo uit kunnen zien (niet copieren plakken maar proberen zelf te maken) 
+
+### Het resultaat 
+zou er ongeveer zo uit kunnen zien 
 ```xml
 <persoon>
     <voornaam>Jeroen</voornaam>
@@ -41,6 +45,7 @@ Maak een:
     </adressen>
 </persoon>
 ```
+</details>
 
 ### Een xsd genereren
 - Kies voor de tweede optie
@@ -92,6 +97,10 @@ brief
   adresregel_3 ==> postcode +' '+ woonplaats
 ```
 
+<details>
+<summary>Antwoord (resultaat)</summary>
+
+### Het resultaat
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -119,3 +128,5 @@ brief
 <adresregel_2><xsl:value-of select="persoon/adressen/adres[@type='werk']/straat"/><xsl:text> </xsl:text><xsl:value-of select="persoon/adressen/adres[@type='werk']/huisnummer"/></adresregel_2>
 <adresregel_3><xsl:value-of select="persoon/adressen/adres[@type='werk']/(postcode,plaats)"/></adresregel_3> 
 ```
+
+</details>
