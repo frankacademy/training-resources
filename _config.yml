@@ -1,0 +1,7 @@
+sidebar:
+  - xml
+  - xpath_plugin
+    children:
+      - doc-1
+      - doc-2
+  - deployment
