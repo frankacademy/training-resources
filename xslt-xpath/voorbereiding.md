@@ -1,6 +1,6 @@
 ## voorbereiding voor de test van de xslt tooling
 
-Als voorbereiding maken we in ons project een paar files aan:
+Als voorbereiding hebben we in ons project een aantal bestanden nodig:
 - persoon.xml
 - persoon2brieven.xsl
 
