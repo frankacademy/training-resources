@@ -1,6 +1,3 @@
----
-id: xml
----
 ## “BASIS XML” in vscode
 
 Om de xslt pugin goed te kunnen testen/gebruiken gaan we zelf een test opzetten. 
@@ -9,6 +6,7 @@ Om de xslt pugin goed te kunnen testen/gebruiken gaan we zelf een test opzetten.
 1. Maak een bijpassende XSD
 1. Maak een simpele XSLT mapping
 1. Test de mapping
+
 
 We openen VSCODE met het alle geinstalleerde plugins 
 
@@ -22,7 +20,7 @@ Maak een:
 - voeg een woon en een werk adres toe
 
 
-Het resultaat zou er ongeveer zo uit moeten zien
+### Het resultaat zou er ongeveer zo uit moeten zien
 ```xml
 <persoon>
     <voornaam>Jeroen</voornaam>
@@ -44,10 +42,12 @@ Het resultaat zou er ongeveer zo uit moeten zien
 </persoon>
 ```
 
-Een xsd genereren
-- kies voor de tweede optie
+### Een xsd genereren
+- Kies voor de tweede optie
 
 <img width="685" height="472" alt="image" src="https://github.com/user-attachments/assets/eb92e2f5-7001-4e1f-81a9-f242e3c821b1" />
+
+
 
 
 ```xml
@@ -80,3 +80,4 @@ Een xsd genereren
     </xs:element>
 </xs:schema>
 ```
+
