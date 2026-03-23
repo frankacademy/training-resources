@@ -16,4 +16,4 @@ git clone https://github.com/frankacademy/training-resources.git
 -	[Installeren plugin](../xslt-xpath/xsltplugin.md)
 -	[Testen plugin](../xslt-xpath/testen.md)
 
-- [Fixen mapping](../xslt-xpath/fix.md)
+-   [Fixen mapping](../xslt-xpath/fix.md)
