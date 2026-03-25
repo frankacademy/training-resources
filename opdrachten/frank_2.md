@@ -61,12 +61,12 @@ XSD tbv landcode te gebruiken in de validator
 				<Forward name="failure" path="EXIT" />
 			</Json2XmlInputValidator>
 			<Exits>
-				<Exit name="READY" state="SUCCESS" />
+				<Exit name="EXIT" state="SUCCESS" />
 			</Exits>
 			<XsltPipe name="transform XML" styleSheetName="xsl/landcode2land.xsl">
 			
 			
-				<Forward name="success" path="READY"/>
+				<Forward name="success" path="EXIT"/>
 			</XsltPipe>
 			
 
@@ -79,5 +79,15 @@ XSD tbv landcode te gebruiken in de validator
 
 </details>
 
+## extra 
+Als we willen dat de landcode ook als url param of als andere session keyy kan worden meegegeven dan kunnen we een param toevoegen aan de Json2XmlInputValidator
 
+```xml
+
+	<Json2XmlInputValidator schema="xsd/landcode.xsd" root="landcode" produceNamespacelessXml="true" name="toxml">				
+				<Param name="landcode" sessionKey="landcode"></Param>
+				<Forward name="failure" path="EXIT" />
+			</Json2XmlInputValidator>
+
+```
 
