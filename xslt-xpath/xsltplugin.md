@@ -13,6 +13,9 @@ Deze biedt:
 - Ga naar Extensions (Ctrl+Shift+X).
 - Zoek naar "XSLT/XPath" (deltaxml.xslt-xpath).
 - Klik op Install.
+- Zoek naar "XSLT/XPath" (deltaxml.xpath-notebook).
+- Klik op Install.
+
 
 ## 2 Installatie van Saxon (parser/transformer)
 - Installeer een JDK (17 of hoger). [check je java versie](Java.md)
