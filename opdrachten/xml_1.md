@@ -20,7 +20,7 @@ Maak een:
 - voeg een woon en een werk adres toe
 
 <details>
-<summary><b><u><Antwoord</u></b></summary>
+<summary> ----> Antwoord</summary>
 
 
 ### Het resultaat 
