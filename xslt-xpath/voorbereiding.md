@@ -7,7 +7,7 @@ Als voorbereiding hebben we in ons project een aantal bestanden nodig:
 <img width="321" height="213" alt="image" src="https://github.com/user-attachments/assets/475d88e0-9c99-4e35-abf9-dc5cde8acf3c" />
 
 ```xml
-<root>
+<persoon>
     <voornaam>Jeroen</voornaam>
     <achternaam>Jansen van Rosendaal</achternaam>
     <adressen>
