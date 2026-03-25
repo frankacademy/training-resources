@@ -25,3 +25,5 @@ https://marketplace.visualstudio.com/items?itemName=PortX.datasonnet-vscode-debu
 - [Integratie flow met apilistener en lookup tabel ](/opdrachten/frank_1.md)
 
  
+ https://frankacademy.github.io/training-resources/
+ 
