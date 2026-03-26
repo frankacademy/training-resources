@@ -1,0 +1,30 @@
+/* Custom styles for <details> and <summary> */
+details {
+  margin: 1em 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  background: #f9f9f9;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  position: relative;
+  padding-left: 1.5em;
+  list-style: none;
+}
+
+summary::before {
+  content: "+ ";
+  position: absolute;
+  left: 0;
+  color: #0074d9;
+  font-size: 1.2em;
+  transition: content 0.2s;
+}
+
+details[open] summary::before {
+  content: "− ";
+}
