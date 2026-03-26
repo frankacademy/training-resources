@@ -8,15 +8,16 @@
 Begin in de bestaande Frank 
 
 Maak een: 
-- Extra configuratie "landen"
-     - mappen structuur
-
+- configuratie_landen.xml file aan in de personen folder
+     - personen
            landen
              xml
              xsl
              xsd 
+		configuration_landen.xml
+		configuration_personen.xml
+		configuration.xml
 
-     - configuratie.xml + configuratie_landen.xml
 - Integratie flow
      - API listener
      - xmljsonvalidator
@@ -47,7 +48,8 @@ XSD tbv landcode te gebruiken in de validator
 ```
 
 <details>
-<summary>Antwoord (resultaat)</summary>
+<summary>OPEN ANTWOORD</summary>
+---
 
 
 ### Het resultaat
@@ -62,13 +64,13 @@ XSD tbv landcode te gebruiken in de validator
 			<ApiListener uriPattern="landen"></ApiListener>
 		</Receiver>
 		<Pipeline firstPipe="transform XML">
-			<Json2XmlInputValidator schema="xsd/landcode.xsd" root="landcode" produceNamespacelessXml="true" name="toxml">				
+			<Json2XmlInputValidator schema="landen/xsd/landcode.xsd" root="landcode" produceNamespacelessXml="true" name="toxml">				
 				<Forward name="failure" path="EXIT" />
 			</Json2XmlInputValidator>
 			<Exits>
 				<Exit name="EXIT" state="SUCCESS" />
 			</Exits>
-			<XsltPipe name="transform XML" styleSheetName="xsl/landcode2land.xsl">
+			<XsltPipe name="transform XML" styleSheetName="landen/xsl/landcode2land.xsl">
 			
 			
 				<Forward name="success" path="EXIT"/>
@@ -81,7 +83,7 @@ XSD tbv landcode te gebruiken in de validator
 	
 </Module>
 ```
-
+---
 </details>
 
 ## extra 
@@ -89,7 +91,7 @@ Als we willen dat de landcode ook als url param of als andere session keyy kan w
 
 ```xml
 
-	<Json2XmlInputValidator schema="xsd/landcode.xsd" root="landcode" produceNamespacelessXml="true" name="toxml">				
+	<Json2XmlInputValidator schema="landen/xsd/landcode.xsd" root="landcode" produceNamespacelessXml="true" name="toxml">				
 				<Param name="landcode" sessionKey="landcode"></Param>
 				<Forward name="failure" path="EXIT" />
 			</Json2XmlInputValidator>
