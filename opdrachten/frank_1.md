@@ -18,7 +18,7 @@
 
 
 <details>
-<summary>Antwoord (resultaat)</summary>
+<summary bgcolor="#D3D3D3">Antwoord (resultaat)</summary>
 
 ### Het resultaat
 
