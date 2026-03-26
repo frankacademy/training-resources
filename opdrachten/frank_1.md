@@ -1,8 +1,3 @@
-
-<!-- Custom styling for details/summary -->
-<link rel="stylesheet" href="/assets/css/details.css">
-<script src="/assets/css/details.js"></script>
-
 ## Bouwen van een Frank integratie flow om de mapping uit te voeren
 
 - (optioneel) maak een Frank aan (create a Frank - Simple Frank)
@@ -18,7 +13,7 @@
 
 
 <details>
-<summary bgcolor="#D3D3D3">Antwoord (resultaat)</summary>
+<summary bgcolor="#D3D3D3">OPEN ANTWOORD</summary>
 
 ### Het resultaat
 
