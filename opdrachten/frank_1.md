@@ -13,8 +13,8 @@
 
 
 <details>
-<summary bgcolor="#D3D3D3">OPEN ANTWOORD</summary>
-
+<summary>OPEN ANTWOORD</summary>
+---
 ### Het resultaat
 
 ```xml
@@ -53,7 +53,7 @@
 	
 </Module>
 ```
-
+---
 </details>
 
 
