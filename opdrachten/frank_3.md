@@ -14,10 +14,18 @@ Maak een:
      - configuratie.xml + configuratie_zaak.xml
 
 
-- Integratie flow
+- Integratie flow (adapter)
      - webservice listener
      - soapvalidator
-	- soapwrapper
 
+Maak een nieuwe configuratie folder "zaken"
+
+
+
+```xml
+<Receiver name="local-zaak">
+	<WebServiceListener name="local-zaak-listener" soapAction="creerzaak" />
+</Receiver>
+```
 
  
