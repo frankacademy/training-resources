@@ -1,8 +1,3 @@
-
-<!-- Custom styling for details/summary -->
-<link rel="stylesheet" href="/assets/css/details.css">
-<script src="/assets/css/details.js"></script>
-
 ## Bouwen van een Frank integratie flow om landen te vertalen naar landcode
 
 Begin in de bestaande Frank 
@@ -49,6 +44,7 @@ XSD tbv landcode te gebruiken in de validator
 
 <details>
 <summary>OPEN ANTWOORD</summary>
+
 ---
 
 
@@ -83,7 +79,9 @@ XSD tbv landcode te gebruiken in de validator
 	
 </Module>
 ```
+
 ---
+
 </details>
 
 ## extra 
@@ -92,9 +90,9 @@ Als we willen dat de landcode ook als url param of als andere session keyy kan w
 ```xml
 
 	<Json2XmlInputValidator schema="landen/xsd/landcode.xsd" root="landcode" produceNamespacelessXml="true" name="toxml">				
-				<Param name="landcode" sessionKey="landcode"></Param>
-				<Forward name="failure" path="EXIT" />
-			</Json2XmlInputValidator>
+		<Param name="landcode" sessionKey="landcode"></Param>
+		<Forward name="failure" path="EXIT" />
+	</Json2XmlInputValidator>
 
 ```
 
