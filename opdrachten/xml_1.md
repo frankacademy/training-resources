@@ -25,8 +25,9 @@ Maak een:
 - voeg een woon en een werk adres toe
 
 <details>
-<summary> ----> Antwoord</summary>
+<summary>OPEN ANTWOORD</summary>
 
+---
 
 ### Het resultaat 
 zou er ongeveer zo uit kunnen zien 
@@ -50,6 +51,9 @@ zou er ongeveer zo uit kunnen zien
     </adressen>
 </persoon>
 ```
+
+---
+
 </details>
 
 ### Een xsd genereren
@@ -103,7 +107,9 @@ brief
 ```
 
 <details>
-<summary>Antwoord (resultaat)</summary>
+<summary>OPEN ANTWOORD</summary>
+
+---
 
 ### Het resultaat
 ```xml
@@ -133,5 +139,7 @@ brief
 <adresregel_2><xsl:value-of select="persoon/adressen/adres[@type='werk']/straat"/><xsl:text> </xsl:text><xsl:value-of select="persoon/adressen/adres[@type='werk']/huisnummer"/></adresregel_2>
 <adresregel_3><xsl:value-of select="persoon/adressen/adres[@type='werk']/(postcode,plaats)"/></adresregel_3> 
 ```
+
+---
 
 </details>
