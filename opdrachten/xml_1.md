@@ -1,3 +1,8 @@
+
+<!-- Custom styling for details/summary -->
+<link rel="stylesheet" href="/assets/css/details.css">
+<script src="/assets/css/details.js"></script>
+
 ## “BASIS XML” in vscode
 
 Om de xslt pugin goed te kunnen testen/gebruiken gaan we zelf een test opzetten. 

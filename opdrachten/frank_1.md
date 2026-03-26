@@ -1,3 +1,8 @@
+
+<!-- Custom styling for details/summary -->
+<link rel="stylesheet" href="/assets/css/details.css">
+<script src="/assets/css/details.js"></script>
+
 ## Bouwen van een Frank integratie flow om de mapping uit te voeren
 
 - (optioneel) maak een Frank aan (create a Frank - Simple Frank)

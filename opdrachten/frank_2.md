@@ -1,3 +1,8 @@
+
+<!-- Custom styling for details/summary -->
+<link rel="stylesheet" href="/assets/css/details.css">
+<script src="/assets/css/details.js"></script>
+
 ## Bouwen van een Frank integratie flow om landen te vertalen naar landcode
 
 Begin in de bestaande Frank 

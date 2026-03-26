@@ -1,3 +1,8 @@
+
+<!-- Custom styling for details/summary -->
+<link rel="stylesheet" href="/assets/css/details.css">
+<script src="/assets/css/details.js"></script>
+
 ## “JSON in XSLT” 
 
 1. json2xml() 
