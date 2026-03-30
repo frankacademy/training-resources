@@ -20,8 +20,9 @@ Maak een:
 - voeg een woon en een werk adres toe
 
 <details>
-<summary> ----> Antwoord</summary>
+<summary>OPEN ANTWOORD</summary>
 
+---
 
 ### Het resultaat 
 zou er ongeveer zo uit kunnen zien 
