@@ -99,7 +99,9 @@ brief
 ```
 
 <details>
-<summary>Antwoord (resultaat)</summary>
+<summary>OPEN ANTWOORD</summary>
+
+---
 
 ### Het resultaat
 ```xml
