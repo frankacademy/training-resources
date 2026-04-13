@@ -23,7 +23,7 @@ https://marketplace.visualstudio.com/items?itemName=PortX.datasonnet-vscode-debu
 - [XSLT (deel 1) ](/opdrachten/xml_1.md)
 - [Integratie Flow met Mapping](/opdrachten/frank_1.md)
 - [XSLT (deel 2) ](/opdrachten/xml_2.md)
-- [XSLT json handling (deel 3)](/opdrachten/xml_2.md)
+- [XSLT json handling (deel 3)](/opdrachten/xml_3.md)
 - [Integratie flow met apiListener en lookup tabel ](/opdrachten/frank_2.md)
 - [Integratie flow met SOAP service en errormessage formatting](/opdrachten/frank_3.md)
  
