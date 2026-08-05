@@ -5,11 +5,10 @@
 ## Opdrachten
 
 - [XSLT/XPATH plugin installeren](/opdrachten/xslt_xpath_plug-in_installeren.md)
-
-- [XSLT (deel 1) ](/opdrachten/xml_1.md)
+- [XSLT (deel 1) ](xslt-xpath/xslt/xml_1.md)
 - [Integratie Flow met Mapping](/opdrachten/frank_1.md)
-- [XSLT lookup/condities (deel 2) ](/opdrachten/xml_2.md)
-- [XSLT json handling (deel 3)](/opdrachten/xml_3.md)
+- [XSLT lookup/condities (deel 2) ](xslt-xpath/xslt/xml_2.md)
+- [XSLT json handling (deel 3)](xslt-xpath/xslt/xml_3.md)
 - [Integratie flow met apiListener en lookup tabel ](/opdrachten/frank_2.md)
 - [Integratie flow met SOAP service en errormessage formatting](/opdrachten/frank_3.md)
  
@@ -25,5 +24,9 @@ https://marketplace.visualstudio.com/items?itemName=deltaxml.xpath-notebook
 - XML<br/>
 https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
 
-- DataSonnet <br/>
+~~
+
+- DataSonnet <br/> no longer available
 https://marketplace.visualstudio.com/items?itemName=PortX.datasonnet-vscode-debugger
+
+~~
