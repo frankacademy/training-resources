@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>XSLT-elementen voor data mapping</title>
+<style>
+  @font-face{
+    font-family:"Gilroy";
+    src:local("Gilroy");
+    font-weight:400 700;
+  }
+  :root{
+    --paper:#ffffff;
+    --ink:#1e1e1e;
+    --ink-soft:#878787;
+    --line:#e2e2e2;
+    --accent:#fdc300;
+    --accent-soft:#fff8dc;
+    --code-bg:#1e1e1e;
+    --code-text:#fdc300;
+    --tag:#1e1e1e;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Gilroy","Helvetica Neue",Arial,sans-serif;
+    line-height:1.6;
+    font-size:17px;
+  }
+  .wrap{
+    max-width:820px;
+    margin:0 auto;
+    padding:56px 28px 90px;
+  }
+  header.page-head{
+    border-bottom:5px solid var(--accent);
+    padding-bottom:22px;
+    margin-bottom:36px;
+  }
+  .kicker{
+    font-family:"Gilroy","Helvetica Neue",monospace;
+    font-size:13px;
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:0.02em;
+    margin:0 0 10px;
+    display:inline-block;
+    border-bottom:3px solid var(--accent);
+    padding-bottom:3px;
+  }
+  h1{
+    font-size:2.1rem;
+    margin:0 0 10px;
+    line-height:1.2;
+    font-weight:600;
+  }
+  .intro{
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    max-width:640px;
+  }
+  nav.toc{
+    background:var(--accent-soft);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:20px 24px;
+    margin:36px 0 46px;
+    font-family:"Gilroy","Helvetica Neue",Arial,sans-serif;
+  }
+  nav.toc p{
+    margin:0 0 10px;
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--ink);
+  }
+  nav.toc ul{
+    columns:2;
+    -webkit-columns:2;
+    margin:0;
+    padding-left:18px;
+    font-size:0.92rem;
+  }
+  nav.toc li{margin-bottom:6px; break-inside:avoid;}
+  nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid transparent;}
+  nav.toc a:hover{border-bottom-color:var(--accent);}
+
+  section.groep{
+    margin-bottom:44px;
+    scroll-margin-top:20px;
+  }
+  section.groep h2{
+    font-family:"Gilroy","Helvetica Neue",Arial,sans-serif;
+    font-size:0.82rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--line);
+    padding-bottom:8px;
+    margin:0 0 6px;
+  }
+  section.groep .groep-uitleg{
+    font-family:"Gilroy","Helvetica Neue",Arial,sans-serif;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    margin:0 0 18px;
+  }
+
+  .element{
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:18px;
+    padding:14px 0;
+    border-bottom:1px dashed var(--line);
+    align-items:start;
+  }
+  .element:last-child{border-bottom:none;}
+  .element code.naam{
+    font-family:"Gilroy","Helvetica Neue",monospace;
+    font-size:0.93rem;
+    color:var(--tag);
+    background:var(--accent-soft);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:3px 8px;
+    display:inline-block;
+    white-space:nowrap;
+  }
+  .element .attr{
+    display:block;
+    margin-top:6px;
+    font-family:"Gilroy","Helvetica Neue",Arial,sans-serif;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+  .element .uitleg p{
+    margin:0 0 6px;
+  }
+  .element .uitleg p:last-child{margin-bottom:0;}
+  .voorbeeld{
+    background:var(--code-bg);
+    color:var(--code-text);
+    font-family:"Gilroy","Helvetica Neue",monospace;
+    font-size:0.83rem;
+    padding:8px 12px;
+    border-radius:3px;
+    margin-top:8px;
+    overflow-x:auto;
+    white-space:pre;
+  }
+
+  .kader{
+    background:var(--accent-soft);
+    border-left:4px solid var(--accent);
+    padding:16px 20px;
+    margin:36px 0;
+    font-family:"Gilroy","Helvetica Neue",Arial,sans-serif;
+    font-size:0.93rem;
+  }
+  .kader strong{
+    background:var(--accent);
+    color:var(--ink);
+    padding:1px 6px;
+    border-radius:2px;
+  }
+
+  footer{
+    margin-top:60px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-family:"Gilroy","Helvetica Neue",Arial,sans-serif;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width: 640px){
+    .element{grid-template-columns:1fr;}
+    nav.toc ul{columns:1;}
+    .wrap{padding:32px 18px 60px;}
+  }
+
+  @media print{
+    body{background:#fff;}
+    nav.toc{break-inside:avoid;}
+    section.groep{break-inside:avoid-page;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page-head">
+    <p class="kicker">Referentiepagina · data mapping</p>
+    <h1>XSLT-elementen voor data mapping</h1>
+    <p class="intro">Een overzicht van de XSLT-elementen die je het vaakst nodig hebt wanneer je een mapping opzet tussen twee XML-structuren. Gebruik deze pagina als naslagwerk tijdens de opdrachten.</p>
+  </header>
+
+  <nav class="toc" aria-label="Inhoudsopgave">
+    <p>Op deze pagina</p>
+    <ul>
+      <li><a href="#basisstructuur">Basisstructuur</a></li>
+      <li><a href="#waarden">Waarden ophalen en schrijven</a></li>
+      <li><a href="#conditioneel">Conditionele logica</a></li>
+      <li><a href="#iteratie">Iteratie</a></li>
+      <li><a href="#variabelen">Variabelen en parameters</a></li>
+      <li><a href="#lookup">Waardetabellen / lookup</a></li>
+      <li><a href="#overig">Overig nuttig bij mapping</a></li>
+    </ul>
+  </nav>
+
+  <section class="groep" id="basisstructuur">
+    <h2>Basisstructuur</h2>
+    <p class="groep-uitleg">De vaste opbouw waar iedere XSLT-mapping mee begint.</p>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:stylesheet&gt;</code><span class="attr">ook: &lt;xsl:transform&gt;</span></div>
+      <div class="uitleg">
+        <p>Het rootelement van elk XSLT-bestand. Hier definieer je de namespaces en de XSLT-versie waarmee je werkt.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:output&gt;</code></div>
+      <div class="uitleg">
+        <p>Bepaalt hoe de uitvoer eruitziet: als XML, HTML of platte tekst, inclusief encoding en indentatie.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:template&gt;</code><span class="attr">attributen: match / name</span></div>
+      <div class="uitleg">
+        <p>Definieert één transformatieregel. Met <code>match</code> koppel je de regel aan een XPath-patroon; met <code>name</code> maak je een template die je expliciet aanroept.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:apply-templates&gt;</code></div>
+      <div class="uitleg">
+        <p>Past de bijpassende templates toe op de child-nodes van de huidige node. Dit is de motor die de transformatie door de hele boom laat lopen.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:call-template&gt;</code></div>
+      <div class="uitleg">
+        <p>Roept een template expliciet aan bij naam, ongeacht de huidige positie in de brondata.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep" id="waarden">
+    <h2>Waarden ophalen en schrijven</h2>
+    <p class="groep-uitleg">Elementen waarmee je daadwerkelijk data uit de bron haalt en naar de doelstructuur wegschrijft.</p>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:value-of&gt;</code></div>
+      <div class="uitleg">
+        <p>Schrijft de waarde van een XPath-expressie weg, bijvoorbeeld een veldwaarde uit de brondata.</p>
+        <div class="voorbeeld">&lt;xsl:value-of select="klant/naam"/&gt;</div>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:copy&gt;</code></div>
+      <div class="uitleg">
+        <p>Kopieert de huidige node, zonder de onderliggende inhoud.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:copy-of&gt;</code></div>
+      <div class="uitleg">
+        <p>Kopieert een node inclusief alle children en attributen. Handig bij een "identity transform", waarbij je de structuur grotendeels ongewijzigd laat.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:element&gt;</code></div>
+      <div class="uitleg">
+        <p>Maakt dynamisch een element aan. Nuttig wanneer de naam van het doelelement afhankelijk is van de brondata.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:attribute&gt;</code></div>
+      <div class="uitleg">
+        <p>Voegt dynamisch een attribuut toe aan het element dat je aan het opbouwen bent.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:text&gt;</code></div>
+      <div class="uitleg">
+        <p>Voegt letterlijke tekst toe aan de uitvoer, bijvoorbeeld scheidingstekens of vaste labels.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep" id="conditioneel">
+    <h2>Conditionele logica</h2>
+    <p class="groep-uitleg">Om data afhankelijk van voorwaarden anders te mappen.</p>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:if&gt;</code></div>
+      <div class="uitleg">
+        <p>Een eenvoudige if-conditie, zonder else-tak.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:choose&gt;</code><span class="attr">met &lt;xsl:when&gt; en &lt;xsl:otherwise&gt;</span></div>
+      <div class="uitleg">
+        <p>De if/elseif/else-structuur van XSLT. Wordt veel gebruikt bij het mappen van codelijsten of waardeconversies.</p>
+        <div class="voorbeeld">&lt;xsl:choose&gt;
+  &lt;xsl:when test="status='A'"&gt;Actief&lt;/xsl:when&gt;
+  &lt;xsl:otherwise&gt;Onbekend&lt;/xsl:otherwise&gt;
+&lt;/xsl:choose&gt;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep" id="iteratie">
+    <h2>Iteratie</h2>
+    <p class="groep-uitleg">Voor het herhaaldelijk verwerken van sets nodes, bijvoorbeeld regels in een order of items in een lijst.</p>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:for-each&gt;</code></div>
+      <div class="uitleg">
+        <p>Loopt over een set nodes, bijvoorbeeld een herhalend element in de brondata.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:for-each-group&gt;</code></div>
+      <div class="uitleg">
+        <p>Groepeert nodes op basis van een sleutel, bijvoorbeeld het groeperen van orderregels per categorie.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:sort&gt;</code></div>
+      <div class="uitleg">
+        <p>Sorteert nodes binnen een <code>for-each</code> of <code>apply-templates</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep" id="variabelen">
+    <h2>Variabelen en parameters</h2>
+    <p class="groep-uitleg">Om tussenwaarden vast te houden of templates herbruikbaar te maken.</p>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:variable&gt;</code></div>
+      <div class="uitleg">
+        <p>Definieert een variabele, bijvoorbeeld een tussentijds berekende waarde.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:param&gt;</code></div>
+      <div class="uitleg">
+        <p>Definieert een parameter, op stylesheet-niveau of op template-niveau.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:with-param&gt;</code></div>
+      <div class="uitleg">
+        <p>Geeft een waarde mee aan een parameter bij het aanroepen van een template.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep" id="lookup">
+    <h2>Waardetabellen / lookup</h2>
+    <p class="groep-uitleg">Voor het mappen van codes en waarden tussen bronsysteem en doelsysteem.</p>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:key&gt;</code></div>
+      <div class="uitleg">
+        <p>Definieert een lookup-sleutel, die je samen met de functie <code>key()</code> gebruikt voor snelle mapping van codes of waarden.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:decimal-format&gt;</code></div>
+      <div class="uitleg">
+        <p>Zorgt voor een consistente getalnotatie, bijvoorbeeld bij het mappen van numerieke velden tussen systemen met verschillende decimaalnotatie.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep" id="overig">
+    <h2>Overig nuttig bij mapping</h2>
+    <p class="groep-uitleg">Aanvullende elementen die het werk makkelijker of overzichtelijker maken.</p>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:message&gt;</code></div>
+      <div class="uitleg">
+        <p>Logt informatie tijdens de transformatie. Nuttig om fouten in je mapping op te sporen.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:import&gt;</code><span class="attr">of: &lt;xsl:include&gt;</span></div>
+      <div class="uitleg">
+        <p>Voor hergebruik van stylesheets, bijvoorbeeld een aparte module met codelijst-mappings die je in meerdere transformaties gebruikt.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:strip-space&gt;</code><span class="attr">of: &lt;xsl:preserve-space&gt;</span></div>
+      <div class="uitleg">
+        <p>Beheert hoe met witruimte wordt omgegaan, vaak nodig bij "vervuilde" brondata.</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <div><code class="naam">&lt;xsl:function&gt;</code><span class="attr">XSLT 2.0+</span></div>
+      <div class="uitleg">
+        <p>Definieert een eigen herbruikbare functie, bijvoorbeeld voor complexe waardeconversies die je op meerdere plekken nodig hebt.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="kader">
+    <strong>Tip voor de training:</strong> laat cursisten eerst de basisstructuur (stylesheet, template, apply-templates) opzetten voordat ze conditionele logica of lookup-tabellen toevoegen. Dat voorkomt dat ze vastlopen op syntax terwijl ze eigenlijk de mapping-logica proberen te snappen.
+  </div>
+
+  <footer>
+    Referentiepagina XSLT-elementen &middot; onderdeel van de Moodle-training data mapping
+  </footer>
+
+</div>
+</body>
+</html>
